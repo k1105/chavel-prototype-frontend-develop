@@ -1,0 +1,91 @@
+{
+  "characters": [
+    {
+      "id": 1,
+      "name": "吾輩（猫）",
+      "appearance": {
+        "chapter": 1,
+        "block": 1,
+        "characterOffset": 0
+      }
+    },
+    {
+      "id": 3,
+      "name": "おさん",
+      "appearance": {
+        "chapter": 1,
+        "block": 5
+      }
+    },
+    {
+      "id": 4,
+      "name": "珍野苦沙弥（主人）",
+      "appearance": {
+        "chapter": 1,
+        "block": 5
+      }
+    },
+    {
+      "id": 7,
+      "name": "珍野夫人",
+      "appearance": {
+        "chapter": 1,
+        "block": 8,
+        "characterOffset": 212
+      }
+    },
+    {
+      "id": 10,
+      "name": "迷亭",
+      "appearance": {
+        "chapter": 1,
+        "block": 10,
+        "characterOffset": 100
+      }
+    },
+    {
+      "id": 11,
+      "name": "車屋の黒（猫）",
+      "appearance": {
+        "chapter": 1,
+        "block": 14,
+        "characterOffset": 221
+      }
+    },
+    {
+      "id": 13,
+      "name": "水島寒月",
+      "appearance": {
+        "chapter": 2,
+        "block": 6,
+        "characterOffset": 263
+      }
+    },
+    {
+      "id": 14,
+      "name": "三毛子",
+      "appearance": {
+        "chapter": 2,
+        "block": 18,
+        "characterOffset": 77
+      }
+    },
+    {
+      "id": 15,
+      "name": "二絃琴の師匠",
+      "appearance": {
+        "chapter": 2,
+        "block": 23
+      }
+    },
+    {
+      "id": 17,
+      "name": "越智東風",
+      "appearance": {
+        "chapter": 2,
+        "block": 24,
+        "characterOffset": 194
+      }
+    }
+  ]
+}

@@ -1,0 +1,259 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #f8b62d;
+  --color-primary-50: #fff1cf;
+  --color-primary-100: #d9eeeb;
+  --color-primary-200: #b3ddd7;
+  --color-primary-300: #f8b62d;
+  --color-primary-400: #6eb5a9;
+  --color-primary-500: #f8b62d;
+  --color-primary-600: #72a199;
+  --color-primary-700: #5a807a;
+  --color-primary-800: #43605b;
+  --color-primary-900: #2b403c;
+  --color-secondary: #ffd96e;
+  --color-shadow: #d7e2e1;
+  --color-chat-bg: #f9e4b7;
+  --color-white: #ffffff;
+  --color-gray-500: #6b7280;
+  --color-splash-bg: #f3f4f6;
+}
+
+/* ==========================================
+   CSS Variables
+   ========================================== */
+:root {
+  --primary: #f8b62d;
+  --secondary: #ffd96e;
+  --background: #f3f4f6;
+  --surface: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+
+  /* カスタムグリーンカラー - 後方互換性のため残す */
+  --chat-bg-50: #e8f7e8;
+  --chat-bg-100: #c8f0c8;
+  --chat-bg-200: #90e090;
+  --chat-bg-300: #50d050;
+
+  /* チャットバルーンカラー */
+  --chat-user-bg: #fff8e6;
+  --chat-assistant-bg: #f9eaea;
+}
+
+.dark {
+  --background: #111827;
+  --surface: #1f2937;
+  --text-primary: #f9fafb;
+  --text-secondary: #9ca3af;
+}
+
+/* スクロールバーを隠す */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}
+
+/* ==========================================
+   Base Styles
+   ========================================== */
+body {
+  background-color: #f3f4f6;
+  color: var(--text-primary);
+}
+
+/* HTMLも同じ背景色に設定 */
+html {
+  background-color: #f3f4f6;
+}
+
+/* ==========================================
+   縦書きスタイル
+   ========================================== */
+
+/* メインの縦書きコンテナ */
+.vertical-text {
+  /* 縦書きモード設定 */
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+
+  /* テキスト方向 */
+  -webkit-text-orientation: upright;
+  text-orientation: upright;
+
+  /* レイアウト */
+  direction: rtl; /* 右から左へ */
+  height: 100%;
+  width: 100%;
+  position: relative;
+
+  /* スクロール設定 */
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 縦書きテキストコンテンツ */
+.vertical-text-content {
+  /* 縦書きモード設定 */
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+
+  /* テキスト方向（漢字は縦、英数字は横） */
+  -webkit-text-orientation: mixed;
+  text-orientation: mixed;
+
+  /* レイアウト */
+  direction: ltr;
+  height: 100%;
+  width: auto;
+  padding: 0;
+  overflow: visible;
+
+  /* テキストスタイル */
+  line-height: 2.5;
+  letter-spacing: 0.1em;
+
+  /* 英数字を正立させる */
+  -webkit-text-combine-upright: digits 2;
+  -ms-text-combine-horizontal: digits 2;
+  text-combine-upright: digits 2;
+
+  /* 句読点の調整 */
+  -webkit-hanging-punctuation: first last;
+  hanging-punctuation: first last;
+
+  /* カラム表示設定 */
+  -webkit-columns: auto;
+  -moz-columns: auto;
+  columns: auto;
+
+  -webkit-column-gap: 3rem;
+  -moz-column-gap: 3rem;
+  column-gap: 3rem;
+
+  -webkit-column-fill: auto;
+  -moz-column-fill: auto;
+  column-fill: auto;
+
+  /* フォント機能 */
+  -webkit-font-feature-settings: "halt";
+  font-feature-settings: "halt";
+}
+
+/* ==========================================
+   ブラウザ固有の対応
+   ========================================== */
+
+/* 縦書き非対応ブラウザへのフォールバック */
+@supports not (writing-mode: vertical-rl) {
+  .vertical-text,
+  .vertical-text-content {
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+  }
+}
+
+/* Safari iOS対応 */
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+  .vertical-text-content {
+    /* iOSのSafariでの縦書きバグ対策 */
+    transform: none;
+    will-change: auto;
+  }
+}
+
+/* ==========================================
+   Safari専用スタイル
+   ========================================== */
+
+/* Safari: 縦書きコンテナ */
+.is-safari .vertical-text {
+  /* flexbox問題を回避 */
+  display: block;
+  overflow: visible;
+}
+
+/* Safari: 縦書きコンテンツ */
+.is-safari .vertical-text-content {
+  /* 縦書き表示を強制 */
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+  -webkit-text-orientation: mixed;
+  text-orientation: mixed;
+
+  /* 幅と高さの調整 */
+  width: auto;
+  max-width: none;
+
+  /* カラム表示を無効化 */
+  -webkit-columns: none;
+  columns: none;
+}
+
+/* Safari: 追加の調整クラス */
+.safari-vertical {
+  display: block;
+}
+
+.safari-content {
+  /* 縦書き設定の強制 */
+  -webkit-writing-mode: vertical-rl;
+  writing-mode: vertical-rl;
+  -webkit-text-orientation: mixed;
+  text-orientation: mixed;
+
+  /* レイアウト調整 */
+  display: block;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: normal;
+}
+
+/* ==========================================
+   UIコンポーネント
+   ========================================== */
+
+/* 縦書き用プログレスバー（右から左に進行） */
+.rtl-progress-bar {
+  direction: rtl;
+}
+
+.rtl-progress-bar .progress-fill {
+  direction: ltr;
+  transform-origin: right;
+}
+
+/* ==========================================
+   カスタムチャットカラー
+   ========================================== */
+
+.bg-chat-light {
+  background-color: var(--chat-bg-100);
+}
+
+.bg-chat-lighter {
+  background-color: var(--chat-bg-50);
+}
+
+/* ==========================================
+   アニメーション
+   ========================================== */
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

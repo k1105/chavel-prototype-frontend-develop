@@ -1,0 +1,36 @@
+{
+  "name": "chavel-prototype-frontend",
+  "version": "1.0.0",
+  "description": "Chavelは、電子書籍の読書体験を革新的に変えるiPad向けプロトタイプアプリケーションです。従来の電子書籍リーダーの機能に加え、AIを活用して書籍内のキャラクターと実際に会話できる読書体験を提供します。",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "biome check .",
+    "format": "biome format . --write",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.4",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.22",
+    "next": "^16.0.3",
+    "postcss": "^8.5.6",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.1.17",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.5",
+    "@tailwindcss/postcss": "^4.1.17",
+    "@tanstack/react-query": "^5.90.9",
+    "zustand": "^5.0.8"
+  }
+}
